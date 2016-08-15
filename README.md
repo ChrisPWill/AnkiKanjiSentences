@@ -1,7 +1,7 @@
 # Kanji Sentences
 Kanji Sentences is a simple addon for Anki allowing a user to suspend or unsuspend Japanese flashcards based on whether or not you have seen a particular kanji.
 
-Currently, the functionality is quite limited - it will simply check the "Kanji" (case insensitive) field of all existing flashcards that are not in the new state (seen at least once) and consider these kanji as being "known". Then, depending on the menu option you choose, it will suspend sentences with unknown kanji or unsuspend sentences without unknown kanji. The field currently checked is the "Expression" (case insensitive) field.
+Currently, the functionality is quite limited - it will simply check the "Kanji" field of all existing flashcards that are not in the new state (seen at least once) and consider these kanji as being "known". Then, depending on the menu option you choose, it will suspend sentences with unknown kanji or unsuspend sentences without unknown kanji. The field currently checked is the "Expression" field in models with "Japanese" in the model name. All field checks are case insensitive.
 
 Kanji Sentences is available on Github:
 
