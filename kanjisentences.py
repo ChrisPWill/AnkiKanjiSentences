@@ -35,6 +35,13 @@ def isKanji(ch):
         return False
 
 
+# returns true if the card belongs to a model with 'japanese' in the name
+def isJapaneseDeckCard(card):
+    model = card.note().model()
+    model_name = model['name']
+    return 'japanese' in model_name.lower()
+
+
 class KanjiSentences:
     def __init__(self, mw):
         if mw:
@@ -61,7 +68,7 @@ class KanjiSentences:
         cardIds = mw.col.db.list("select id from cards")
         for id, i in enumerate(cardIds):
             card = mw.col.getCard(i)
-            if card.queue >= 0:
+            if card.queue >= 0 and isJapaneseDeckCard(card):
                 keys = card.note().keys()
                 expressionField = None
                 for s, key in ((key.lower(), key) for key in keys):
@@ -86,7 +93,7 @@ class KanjiSentences:
         cardIds = mw.col.db.list("select id from cards")
         for id, i in enumerate(cardIds):
             card = mw.col.getCard(i)
-            if card.queue == -1:
+            if card.queue == -1 and isJapaneseDeckCard(card):
                 keys = card.note().keys()
                 expressionField = None
                 for s, key in ((key.lower(), key) for key in keys):
